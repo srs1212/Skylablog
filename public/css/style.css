@@ -377,12 +377,12 @@ h2.slide-btm-text{
 .service-box p{
     font-size: 13px;
 }
-/*team*/
-.team-col{
+/*skills*/
+.skills-col{
     text-align: center;
     margin-bottom: 25px;
 }
-.team-col img{
+.skills-col img{
     width:120px;
     height: 120px;
     border-radius: 50%;
@@ -396,17 +396,17 @@ h2.slide-btm-text{
     -o-transition: top 0.15s linear;
     transition: top 0.15s linear;
 }
-.team-col h4{
+.skills-col h4{
     font-weight: 300;
     margin-top: 15px;
     margin-bottom: 0px;
     color:#000;
 }
-.team-col span{
+.skills-col span{
     color:#777;
     font-size: 12px;
 }
-.team-col:hover img{
+.skills-col:hover img{
     top: -5px;
     box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.5);
 }
