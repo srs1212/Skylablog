@@ -336,15 +336,15 @@ h2.slide-btm-text{
     background-attachment: fixed;
 
 }
-/**services****/
-.services{
+/**about spinning icons****/
+.spin{
     margin-top: 30px;
 }
-.service-box{
+.spin-box{
     text-align: center;
 
 }
-.service-box i{
+.spin-box i{
     width:90px;
     height: 90px;
     line-height: 90px;
@@ -361,7 +361,7 @@ h2.slide-btm-text{
     -o-transition: 0.7s ease-in-out;
     transition: 0.7s ease-in-out;
 }
-.service-box:hover i{
+.spin-box:hover i{
     -webkit-transform: rotateY(360deg);
     -moz-transform: rotateY(360deg);
     -ms-transform: rotateY(360deg);
@@ -369,12 +369,12 @@ h2.slide-btm-text{
     background-color: #25CBF5;
     color:#fff;
 }
-.service-box h3{
+.spin-box h3{
     font-weight: 400;
     text-transform: uppercase;
     font-size: 18px;
 }
-.service-box p{
+.spin-box p{
     font-size: 13px;
 }
 /*skills*/
