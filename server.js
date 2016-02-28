@@ -6,6 +6,7 @@ mongoose.connect('mongodb://localhost/blog');
 
 var blogRouter= require('./routes/blog');
 var Post = require('./app/models/blog');
+var Test = require('./app/models/test');
 
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(bodyParser.json());
