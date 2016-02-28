@@ -3,7 +3,7 @@ var Schema    = mongoose.Schema;  //setting up constructor f(x) for BearSchema a
 								  // Schema is set in Mongo terminology
 var TestSchema  = new Schema({  //this object sets our database nomenclature 
 	name: String,  
-	date: Date,
+	date: String,
 });
 
 module.exports = mongoose.model('Test', TestSchema);

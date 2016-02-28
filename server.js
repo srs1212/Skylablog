@@ -12,14 +12,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(express.static('public')); 
+app.set('view engine', 'ejs');
 
 app.get('/', function(req, res){
 		res.render('index', {title: 'hi blog'});
 });
 
 
+app.get('/test', function(req, res){
 
-
+		Test.find(function(err, tests){
+			if(err){
+				console.log(err);
+			}else {
+				res.render('tests', {tests: tests});
+			}	
+		});
+});
 
 
 
