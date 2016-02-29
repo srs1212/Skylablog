@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/blog'); 
 
 var blogRouter= require('./routes/blog');
+var testRouter= require('./routes/test');
 var Post = require('./app/models/blog');
 var Test = require('./app/models/test');
 
@@ -13,6 +14,8 @@ app.use(bodyParser.json());
 
 app.use(express.static('public')); 
 app.set('view engine', 'ejs');
+
+
 
 app.get('/', function(req, res){
 		res.render('index', {title: 'hi blog'});
@@ -25,7 +28,7 @@ app.get('/test', function(req, res){
 			if(err){
 				console.log(err);
 			}else {
-				res.render('tests', {tests: tests});
+				res.render('test', {tests: tests});
 			}	
 		});
 });
@@ -35,7 +38,8 @@ app.get('/test', function(req, res){
 var port = process.env.PORT || 5050;
 var router = express.Router();
 
-app.use('/api', blogRouter);
+app.use('/api', testRouter); 
+//changed from blogRouter
 
 app.listen(port);
 console.log('Blog happens on port ' + port);
