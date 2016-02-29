@@ -1,4 +1,4 @@
-var mainFoot = React.createClass({
+var MainFoot = React.createClass({
     render: function(){
         return (
         <footer id="footer">
@@ -53,8 +53,9 @@ var mainFoot = React.createClass({
 });
 
 ReactDOM.render(
-  React.createElement(mainFoot),
+<MainFoot />,
   document.getElementById('footerM')
+
 );
 
  
