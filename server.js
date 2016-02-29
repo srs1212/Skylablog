@@ -45,16 +45,26 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', function(req, res){
-		res.render('index', {title: 'hi index'});
+		res.render('index', {user: 'I am an user'});
 });
 
 app.get('/blog', function(req, res){
-		res.render('blog', {title: 'hi blog'});
+	var user = req.user || "no user";
+		res.render('blog', {user: user});
 });
 
 app.get('/blog-post', function(req, res){
 		res.render('blog-post', {title: 'hi blog-post'});
 });
+
+app.get('./partials/mainnav', function(req, res){
+		res.render('mainnav', {title: 'hi mainnav'});
+});
+
+app.get('./partials/footer', function(req, res){
+		res.render('footer', {title: 'hi footer'});
+});
+
 
 
 app.get('/test', function(req, res){

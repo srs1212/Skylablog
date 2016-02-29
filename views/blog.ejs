@@ -36,7 +36,7 @@
 
     </head>
     <body data-spy="scroll" data-offset="80">
- 
+     <%= user.local.email%>
         <section id="mainnavigation">
         <%-include ./partials/mainnav.ejs %>
 
@@ -220,6 +220,7 @@
             </div>
         </section><!--blog wrapper-->
         <section id="footerM">
+          <%-include ./partials/footer.ejs %>
         
         </section>
                 <!--back to top-->
@@ -262,9 +263,6 @@
         
         <script src="js/jqBootstrapValidation.js" type="text/javascript"></script>
         <!--customizable plugin edit according to your needs-->
-        
-        <script src="partials/mainnav.ejs" type="text/babel"></script>
-        <script src="footer.js" type="text/babel"></script>
  
       
         <script src="js/contact_me.js" type="text/javascript"></script>
