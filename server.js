@@ -6,7 +6,7 @@ var passport = require('passport');
 mongoose.connect('mongodb://localhost/post'); 
 var flash = require('connect-flash');
 var session = require('express-session');
-var tweetRoutes = require('./routes/tweets');
+var tweetRoutes = require('./routes/tweets'); //declaring tweetRoutes 
 
 var postRouter= require('./routes/post');
 var testRouter= require('./routes/test');
@@ -93,7 +93,7 @@ var router = express.Router();
 
 app.use('/api', testRouter); 
 app.use('/api', postRouter); 
-app.use('/api/tweets', tweetRoutes);
+app.use('/api/tweets', tweetRoutes); //sets the initial path/route for the api that we then use in tweets.js
 
 app.listen(port);
 console.log('Blog happens on port ' + port);
