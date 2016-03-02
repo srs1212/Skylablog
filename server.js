@@ -3,17 +3,19 @@ var app        = express();
 var bodyParser = require('body-parser');  
 var mongoose = require('mongoose'); 
 var passport = require('passport');
-mongoose.connect('mongodb://localhost/blog'); 
+mongoose.connect('mongodb://localhost/post'); 
 var flash = require('connect-flash');
 var session = require('express-session');
+var tweetRoutes = require('./routes/tweets');
 
-var blogRouter= require('./routes/blog');
+var postRouter= require('./routes/post');
 var testRouter= require('./routes/test');
-var Post = require('./app/models/blog');
+var Post = require('./app/models/post');
 var Test = require('./app/models/test');
 
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(bodyParser.json());
+
 //start routing for passport
 app.use(session({
  secret: 'ilovescotchscotchyscotchscotch'
@@ -53,6 +55,12 @@ app.get('/blog', function(req, res){
 		res.render('blog', {user: user});
 });
 
+app.get('/social', function(req, res){
+	var user = req.user || "no user";
+		res.render('social', {user: user});
+});
+
+
 app.get('/blog-post', function(req, res){
 		res.render('blog-post', {title: 'hi blog-post'});
 });
@@ -68,12 +76,12 @@ app.get('./partials/footer', function(req, res){
 
 
 app.get('/test', function(req, res){
-
-		Test.find(function(err, tests){
+		var user = req.user || "no user";
+		Post.find(function(err, post){
 			if(err){
 				console.log(err);
 			}else {
-				res.render('test', {tests: tests});
+				res.render('test', {post: post, user: user});
 			}	
 		});
 });
@@ -84,7 +92,8 @@ var port = process.env.PORT || 5050;
 var router = express.Router();
 
 app.use('/api', testRouter); 
-//changed from blogRouter
+app.use('/api', postRouter); 
+app.use('/api/tweets', tweetRoutes);
 
 app.listen(port);
 console.log('Blog happens on port ' + port);

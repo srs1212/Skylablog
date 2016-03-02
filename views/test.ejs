@@ -62,12 +62,12 @@
                         <th>Date</th>
                     </tr>
                 </thead>
-                <tbody id="testTable">
-                    <% for(var i = 0; i < tests.length; i++) {
+                <tbody id="postTable">
+                    <% for(var i = 0; i < post.length; i++) {
                         %>
-                    <tr id="<%= tests[i]._id %>">
-                        <td><%= tests[i].name %> </td>
-                        <td><%= tests[i].date %> </td>
+                    <tr id="<%= post[i]._id %>">
+                        <td><%= post[i].name %> </td>
+                        <td><%= post[i].date %> </td>
                        
                         <button type="button" class="btn btn-warning deleteTest">Delete Test</button></td>
                     </tr>
@@ -82,7 +82,7 @@
             <div class="container center">
                 <div class="row">
                     <div class="col-md-6">
-                        <form class="form-inline" role="form"> 
+                        <form class="form-inline" action = "/api/post" method = "POST" role="form"> 
                         
                             <div class="form-group">
                                 <label class="sr-only" for="">label</label>
@@ -93,7 +93,7 @@
                                 <input required type="text" name="date" class="form-control" id="date" placeholder="date">
                             </div> 
                         
-                            <button type="submit" id="addTest" class="btn btn-primary">Add Test</button>        
+                            <button type="submit" class="btn btn-primary">Add Test</button>        
                         </form>
                     </div>
                 </div>
@@ -151,8 +151,7 @@
         <script src="js/jqBootstrapValidation.js" type="text/javascript"></script>
         <!--customizable plugin edit according to your needs-->
         <script src="js/custom.js" type="text/javascript"></script>
-        <script src="mainnav.js" type="text/babel"></script>
-        <script src="footer.js" type="text/babel"></script>
+       
         <script src="https://fb.me/react-0.13.3.js"></script>
         <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>

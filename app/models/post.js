@@ -4,8 +4,9 @@ var Schema    = mongoose.Schema;  //setting up constructor f(x) for BearSchema a
 var PostSchema  = new Schema({  //this object sets our database nomenclature 
 	title: String,  
 	content: String,
-	author: String,
-	date: Date,
+	author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+	image: String,
+	date: {type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model('Post', PostSchema);
