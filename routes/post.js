@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
-
+var Comment = require('../app/models/comment'); //not sure if this is two dots, Dougs was.
 var Post = require('../app/models/post');
 
 router.route('/post')
     .get(function(req, res){
         Post.find()
         .populate('author')
+        .populate('comments')
         .exec(function(err, post){
             if(err){
                 console.log(err)
@@ -36,7 +37,34 @@ router.route('/post')
         });
     })
     
+//line below is for the posting to comments
+router.route('/post/:post_id/comment')
+    .post(function(req,res){
+        var comment = new Comment(); 
+        comment.body = req.body.body ;
+        comment.user = '56d5dfd34be1190c38e40db0';
+        comment.blog = req.params.post_id;
 
+        comment.save(function(err,com){
+            if (err){
+            res.send(err);
+        } else {
+            //find blog by id and
+            //push comments into comments array
+            Post.findById(req.params.post_id, function(err,post){
+                if(err){
+                    res.send(err)
+                } else {
+                    post.comments.push(com._id);
+                    post.save();
+                    res.json(com);
+                }
+            });
+        }
+        });
+    });
+
+//end comments code
 router.route('/post/:post_id')
     .get(function(req, res){
         Post.find(req.params.post_id, function(err, post){
