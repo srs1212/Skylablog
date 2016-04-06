@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var Comment = require('../app/models/comment'); //not sure if this is two dots, Dougs was.
-var Post = require('../app/models/post');
+var Comment = require('../models/comment'); 
+var Post = require('../models/post');
 
 router.route('/post')
     .get(function(req, res){

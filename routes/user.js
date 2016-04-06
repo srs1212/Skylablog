@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var User = require('../app/models/user');
+var User = require('../models/user');
 
 // app/routes.js
 module.exports = function(app, passport) {

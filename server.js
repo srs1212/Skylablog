@@ -10,8 +10,8 @@ var tweetRoutes = require('./routes/tweets'); //declaring tweetRoutes
 
 var postRouter= require('./routes/post');
 var testRouter= require('./routes/test');
-var Post = require('./app/models/post');
-var Test = require('./app/models/test');
+var Post = require('./models/post');
+var Test = require('./models/test');
 
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(bodyParser.json());

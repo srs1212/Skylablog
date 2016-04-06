@@ -1,6 +1,6 @@
 	var express = require('express');
 	var router = express.Router();
-	var Test = require('../app/models/test');
+	var Test = require('../models/test');
 
 
 router.route('/tests') //express function to use root/testsas our API endpoint.
