@@ -12,3 +12,11 @@ var PostSchema  = new Schema({  //this object sets our database nomenclature
 
 module.exports = mongoose.model('Post', PostSchema);
 
+/*
+	title:  
+	content:
+	author: 
+	image: 
+	date: 
+	comments: 
+*/

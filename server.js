@@ -95,14 +95,22 @@ app.get('/blog', function(req, res){
 		res.render('blog', {user: user});
 });
 
+app.get('/blog-post', function(req, res){
+		res.render('blog-post', {title: 'hi blog-post'});
+});
+
 app.get('/social', function(req, res){
 	var user = req.user || "no user";
 		res.render('social', {user: user});
 });
 
+app.get('/OLDblog', function(req, res){
+	var user = req.user || "no user";
+		res.render('OLDblog', {user: user});
+});
 
-app.get('/blog-post', function(req, res){
-		res.render('blog-post', {title: 'hi blog-post'});
+app.get('/OLDblog-post', function(req, res){
+		res.render('OLDblog-post', {title: 'hi blog-post'});
 });
 
 app.get('./partials/mainnav', function(req, res){

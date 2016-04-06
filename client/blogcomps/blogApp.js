@@ -21,15 +21,15 @@ Parent main rendering component (could be outside comps but used it in the webpa
 
 var React = require('react');
 var Loader = require('../loader');
-var BlogList = require('./bloglist');
-var BlogCard = require('./blogcard');
+var BlogList = require('./blogList');
+var BlogCard = require('./blogCard');
+var BlogListData = require('./blogListData')
 //BlogApp renders directly to the blog.ejs page under views.
 var BlogApp = React.createClass({
 	render: function (){
 		return (
 			<div>
 				<h3>Hello World </h3>
-				<BlogList />
 				<BlogCard />
 
 			</div>

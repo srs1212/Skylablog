@@ -17,16 +17,33 @@ blogcomps
 */
 
 var React = require('react');
-var BlogCard = require('./blogcard');
+var BlogCard = require('./blogCard');
 
-var BlogList = React.createClass({
-	render: function (){
+function BlogList(props){
+		var allPosts = props.postArray.map(item =>{
+			return (
+				<blogCard
+				getId = { props.getId }
+				id = { item._id }
+				key = { item._id }
+				title ={ item.title }
+				content ={ item.content }
+				image ={ item.image }
+				date ={ item.date }
+				comments ={ item.comments } />
+			);
+		});
 		return (
 			<div>
-				<h3>BlogList </h3>
+				{ allPosts }
 			</div>
-			);
-	}
-});
+			)
+	};
+
+BlogList.propTypes = {
+	postArray: React.PropTypes.array.isRequired
+
+};
+
 
 module.exports = BlogList;

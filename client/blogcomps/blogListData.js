@@ -31,50 +31,18 @@ var BlogListData = React.createClass({
 	   	$.ajax({
 	     url: '/api/post' ,
 	     method: 'GET'
-	   	}).done(data => this.setState({ allFish: data }));
+	   	}).done(data => this.setState({ allPosts: data }));
 	},
 
 	componentDidMount: function(){
-		this.loadAllFishFromServer();
+		this.loadAllPostsFromServer();
 	},
 
-	getId: function(whichCompState, id) {
-    	if( whichCompState === 'showOne') {
-            return this.setState({ activeFishId: id, activeComponent: 'oneFish'})
-        } else {
-            return this.setState({ activeFishId: id, activeComponent: 'editFish'})
-        }
-    },
-
-
-	showComp: function(){
-		if(this.state.activeComponent === 'fish'){
-			return <FishListData getId= { this.getId }/> 
-		} else if (this.state.activeComponent === 'form') {
-			return <FishFormData toggleActiveComp = { this.toggleActiveComp } />
-		} else if (this.state.activeComponent === 'oneFish') {
-			return <FishDetailsData id={ this.state.activeFishId } />
-		} else if (this.state.activeComponent === 'editFish'){
-			return <EditFishData id = { this.state.activeFishId } toggleActiveComp = { this.toggleActiveComp } />
-		} else {
-			throw new Error("invalid activecomponant", this.state.activeComponent)
-		}
 	
-	},
-	toggleActiveComp: function(name){
-		this.setState ({ activeComponent: name})
-	},
 
 	render: function (){
-		return (
-			<div className = "container marginbottom">
-				<Toggler toggleActiveComp = {this.toggleActiveComp }/>
-				{ this.showComp() }
-			</div>
-
-
-			);
+		return this.state.allPosts ? <PostList getId = {this.props.getId } fishArray = { this.state.allFish } deleteFish={ this.deleteFish } /> : <Loader />
 	}
 });
 
-module.exports = FishBox;
+module.exports = BlogListData;
