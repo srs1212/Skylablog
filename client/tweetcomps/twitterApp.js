@@ -1,3 +1,8 @@
+var React = require('react');
+var ReactDOM = require('react-dom');
+var TwitterSearchBar = require('./twitterSearchBar');
+var TwitterBox = require('./twitterBox');
+
 var TwitterApp = React.createClass({
 	propTypes: {
 		url: React.PropTypes.string.isRequired
@@ -29,19 +34,20 @@ var TwitterApp = React.createClass({
 	},
 
 	componentDidMount: function(){
-		this.loadTweetsFromServer(this.state.keyword)
+		this.loadTweetsFromServer(this.state.keyword);
 	},
 
 	render: function(){
-		return (
+		var keyword = this.state.keyword ? this.state.keyword : null;
+		return(
 			<div>
-				<p>Searching Twitter for: {this.state.keyword}</p>
-				<TwitterSearchBar onKeywordSubmit={this.onKeywordSubmit} />
+				<p>Searching Twitter for: { this.state.keyword }</p>
+				<TwitterSearchBar onKeywordSubmit={ this.onKeywordSubmit } />
 				<TwitterBox tweetsArray={ this.state.tweets } />
 			</div>
 			)
 	}
 });
 
-React.render(<TwitterApp url="/api/tweets/"/>,
+ReactDOM.render(<TwitterApp url="/api/tweets/"/>,
 	document.getElementById('twitter-app'));

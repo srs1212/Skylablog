@@ -1,3 +1,4 @@
+var React = require('react');
 var TwitterSearchBar = React.createClass({
 	getInitialState: function(){
 		return {newKeyword: ''}
@@ -17,6 +18,7 @@ var TwitterSearchBar = React.createClass({
 
 	render: function (){
 		return (
+		<div>
 			<form onSubmit={this.handleFormSubmit}>
 				<div>
 					<input onChange={this.handleKeywordChange}
@@ -27,7 +29,10 @@ var TwitterSearchBar = React.createClass({
 					<button>GO</button>
 				</div>
 			</form>
+		</div>
 		)
 	}
 });
+
+module.exports = TwitterSearchBar;
 

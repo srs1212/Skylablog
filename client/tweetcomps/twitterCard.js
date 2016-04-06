@@ -1,3 +1,4 @@
+var React = require('react');
 var TwitterCard = React.createClass({
 	render: function (){
 		return (
@@ -16,3 +17,4 @@ var TwitterCard = React.createClass({
 	}
 });
 
+module.exports = TwitterCard;

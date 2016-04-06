@@ -1,3 +1,5 @@
+var React = require('react');
+var TwitterCard = require ('./twitterCard');
 var TwitterBox = React.createClass({
 	propTypes: {
 			tweetsArray: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
@@ -13,7 +15,7 @@ var TwitterBox = React.createClass({
 						 profile_image_url={t.profile_image_url}
 						 />
 		});
-			return (
+			return(
 				<div>
 					{tweets}
 				</div>
@@ -21,4 +23,6 @@ var TwitterBox = React.createClass({
 		}
 
 });
+
+module.exports = TwitterBox;
 
