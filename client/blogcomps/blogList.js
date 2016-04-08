@@ -13,7 +13,8 @@ blogcomps
  				-commentFormData.js
  				   -commentForm.js (SL)
  				-commentList.js (SL)
-					-commentCard.js (SL) 
+					-commentCard.js (SL)
+getId = { props.getId } 
 */
 
 var React = require('react');
@@ -22,7 +23,7 @@ var BlogCard = require('./blogCard');
 function BlogList(props){
 		var allPosts = props.postArray.map(item =>{
 			return (
-				<blogCard
+				<BlogCard 
 				getId = { props.getId }
 				id = { item._id }
 				key = { item._id }
@@ -36,7 +37,11 @@ function BlogList(props){
 		return (
 			<div>
 				{ allPosts }
-			</div>
+			 <ul className="pager">
+		     <li><a href="#">Previous Page</a></li>
+		     <li><a href="#">Next Page</a></li>
+		     </ul>
+		     </div>
 			)
 	};
 

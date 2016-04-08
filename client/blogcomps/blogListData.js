@@ -14,9 +14,12 @@ blogcomps
  				   -commentForm.js (SL)
  				-commentList.js (SL)
 					-commentCard.js (SL) 
+
 */
 
 var React = require('react');
+var Loader = require('../loader');
+var BlogList = require ('./blogList');
 
 var BlogListData = React.createClass({
 
@@ -29,7 +32,7 @@ var BlogListData = React.createClass({
 
 	loadAllPostsFromServer: function() {
 	   	$.ajax({
-	     url: '/api/post' ,
+	     url: '/api/post',
 	     method: 'GET'
 	   	}).done(data => this.setState({ allPosts: data }));
 	},
@@ -41,7 +44,7 @@ var BlogListData = React.createClass({
 	
 
 	render: function (){
-		return this.state.allPosts ? <PostList getId = {this.props.getId } fishArray = { this.state.allFish } deleteFish={ this.deleteFish } /> : <Loader />
+		return this.state.allPosts ? <BlogList postArray = { this.state.allPosts } getId = { this.props.getId } /> : <Loader />
 	}
 });
 

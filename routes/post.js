@@ -5,6 +5,7 @@ var Post = require('../models/post');
 
 router.route('/post')
     .get(function(req, res){
+        console.log('regular POST route!');
         Post.find()
         .populate('author')
         .populate('comments')
@@ -18,7 +19,12 @@ router.route('/post')
     })
 
     .post(function(req, res){
-        var user = req.user || "no user";
+        var user = req.user;
+        if (!user){
+            res.status(500).send("Must be logged in to post");
+            return; 
+        } 
+
         console.log(user);
         var post = new Post();
        
@@ -26,7 +32,7 @@ router.route('/post')
         post.content= req.body.content || 'none';
         post.image = req.body.image || 'none';
 
-        post.author = req.user._id || '56d5dfd34be1190c38e40db0';
+        post.author = req.user._id; 
 
         post.save(function(err, post){
             if(err){
@@ -38,11 +44,11 @@ router.route('/post')
     })
     
 //line below is for the posting to comments
-router.route('/post/:post_id/comment')
+router.route('/one_post/:post_id/comment')
     .post(function(req,res){
         var comment = new Comment(); 
         comment.body = req.body.body ;
-        comment.user = '56d5dfd34be1190c38e40db0';
+        comment.user = '56d5dfb24be1190c38e40daf';
         comment.blog = req.params.post_id;
 
         comment.save(function(err,com){
@@ -65,11 +71,11 @@ router.route('/post/:post_id/comment')
     });
 
 //end comments code
-router.route('/post/:post_id')
+router.route('/one_post/:post_id')
     .get(function(req, res){
-        Post.find(req.params.post_id, function(err, post){
+        Post.findById(req.params.post_id, function(err, post){
             if(err){
-                console.log(err)
+                console.log(err);
             } else {
                 res.json(post)
             }
