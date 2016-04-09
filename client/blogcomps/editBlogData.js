@@ -1,6 +1,5 @@
 /*
 blogApp.js
-blogcomps
  	-blogListData.js
  		-blogList.js (SL) 
  			-blogCard.js (SL)
@@ -9,7 +8,7 @@ blogcomps
  		-blogFormData.js 
  			-blogForm.js (SL)
  		-singleBlogDetailData.js
- 			-singBlogDetails.js (SL)
+ 			-singBlogDetail.js (SL)
  				-commentFormData.js
  				   -commentForm.js (SL)
  				-commentList.js (SL)

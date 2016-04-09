@@ -34,6 +34,7 @@ var SingleBlogDetailData =  React.createClass({
     		url: '/api/one_post/' + self.props.id,
     		method: 'GET'
     	}).done(function(data){
+    		console.log('in load one posts from server')
     		console.log(data, "data here;");
     		self.setState({onePost: data});
     	});

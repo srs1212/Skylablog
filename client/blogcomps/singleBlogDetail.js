@@ -1,7 +1,9 @@
 
 var React = require('react');
+var CommentList = require('./commentList');
 
 function SingleBlogDetail(props) {
+	console.log(props);
 	var dayDate = new Date(props.date).getDate();
 	var monthDate = new Date(props.date).toString().substr(4,4);
 	var yearDate = new Date(props.date).getFullYear();
@@ -44,31 +46,11 @@ function SingleBlogDetail(props) {
 	                            </div>
 	                        </div>
 	                        <div className="post-cmnt-wrap">
-	                            <h4>3 Comments</h4>
+	                            <h4>3(needs JS) Comments</h4>
 	                            <div className="comment-list">
-	                                <h4><img src="img/team-1.jpg" className="img-responsive" />
-	                                    by User on 27 Aug <a href="#">Reply</a>
-	                                </h4>
-	                                <p>
-	                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie
-	                                </p>
+	                               <CommentList commentArray={ props.comments} />
 	                            </div>
-	                            <div className="comment-list">
-	                                <h4><img src="img/team-5.jpg" className="img-responsive" />
-	                                    by User on 27 Aug <a href="#">Reply</a>
-	                                </h4>
-	                                <p>
-	                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie
-	                                </p>
-	                            </div>
-	                            <div className="comment-list">
-	                                <h4><img src="img/team-3.jpg" className="img-responsive" />
-	                                    by User on 27 Aug <a href="#">Reply</a>
-	                                </h4>
-	                                <p>
-	                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie
-	                                </p>
-	                            </div>
+	                            
 	                        </div>
 
 	                        <div className="comment-form margin-btm-30">

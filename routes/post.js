@@ -47,8 +47,8 @@ router.route('/post')
 router.route('/one_post/:post_id/comment')
     .post(function(req,res){
         var comment = new Comment(); 
-        comment.body = req.body.body ;
-        comment.user = '56d5dfb24be1190c38e40daf';
+        comment.body = req.body.body;
+        comment.user = req.user._id;
         comment.blog = req.params.post_id;
 
         comment.save(function(err,com){
@@ -73,7 +73,9 @@ router.route('/one_post/:post_id/comment')
 //end comments code
 router.route('/one_post/:post_id')
     .get(function(req, res){
-        Post.findById(req.params.post_id, function(err, post){
+        Post.findById(req.params.post_id)
+        .populate ('comments')
+        .exec (function(err, post){
             if(err){
                 console.log(err);
             } else {

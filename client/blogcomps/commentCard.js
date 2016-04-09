@@ -17,3 +17,23 @@ blogcomps
 */
 
 var React = require('react');
+
+function CommentCard(props) {
+	var dayDate = new Date(props.date).getDate();
+	var monthDate = new Date(props.date).toString().substr(4,4);
+	var yearDate = new Date(props.date).getFullYear();
+	return (
+		
+            <div className="comment-list">
+                <h4><img src="img/team-1.jpg" className="img-responsive" />
+                    by: { props.user } on { monthDate } &nbsp; { dayDate } 
+                </h4>
+                <p>
+                { props.body }
+                </p>
+            </div>
+
+
+		);
+};
+module.exports = CommentCard;
