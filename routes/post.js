@@ -41,18 +41,38 @@ router.route('/post')
                 res.json(post)
             }
         });
-    })
+    });
     
 //line below is for the posting to comments
 router.route('/one_post/:post_id/comment')
+    .get(function(req, res){
+        Post.findById(req.params.post_id)
+        .populate ('comments')
+        .exec (function(err, comments){
+            if(err){
+                console.log(err);
+            } else {
+                res.json(comments);
+            }
+        });
+    })
+
+
     .post(function(req,res){
+        var user = req.user;
+        if (!user){
+            res.status(500).send("Must be logged in to post");
+            return; 
+        } 
+
+        console.log("posting comment to server ");
         var comment = new Comment(); 
-        comment.body = req.body.body;
-        comment.user = req.user._id;
+        comment.body = req.body.body || none,
+        comment.user = req.user._id 
         comment.blog = req.params.post_id;
 
         comment.save(function(err,com){
-            if (err){
+        if (err){
             res.send(err);
         } else {
             //find blog by id and

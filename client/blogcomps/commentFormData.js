@@ -23,7 +23,58 @@ user:
 
 var React = require('react');
 
+var CommentForm = require ('./commentForm');
+//Posting new Fish
+var CommentFormData = React.createClass({
+	getInitialState: function() {
+		console.log("getting initial state blog comment")
+	    return {
+	      body: null,
+		}
+    },
+    
+	onBodyChange: function(event){
+    	this.setState({ body: event.target.value})
+    },
 
+  
+	onCommentSubmit: function(e){ 
+		console.log("on comment submitting" )
+		e.preventDefault();
+		var commentData = {
+			body: this.state.body.trim()
+
+    	};
+    	var self = this;
+    	var commentData = commentData;
+	    $.ajax({
+	      url: '/api/one_post/' + self.props.id + '/comment',
+	      type: 'POST',
+	      data: commentData,
+	    }).done(function(data){
+	    	console.log("should be getting just to here");
+	  // this.props.loadCommentsFromServer();
+			// this.props.loadOnePostFromServer(); 
+			//these lines break, deleting yields "comment validation error"
+			self.setState({ body: ''});
+			console.log(data);
+	    });
+   
+   },
+
+	render: function(){
+		return (
+			<CommentForm
+			onCommentSubmit={ this.onCommentSubmit }
+			onBodyChange={ this.onBodyChange }
+			body={ this.state.body }
+
+			/>
+			
+		)
+		
+	}
+});
 
 module.exports = CommentFormData;
 

@@ -24,7 +24,7 @@ date: {type: Date, default: Date.now },
 
 var React = require('react');
 
-var BlogForm = require ('./blogform');
+var BlogForm = require ('./blogForm');
 //Posting new Fish
 var BlogFormData = React.createClass({
 	getInitialState: function() {

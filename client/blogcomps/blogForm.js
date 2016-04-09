@@ -49,7 +49,7 @@ function BlogForm(props){
 		</section>
 		
 			);
-}
+};
 
 
 

@@ -1,6 +1,7 @@
 
 var React = require('react');
 var CommentList = require('./commentList');
+var CommentFormData = require('./commentFormData');
 
 function SingleBlogDetail(props) {
 	console.log(props);
@@ -54,20 +55,10 @@ function SingleBlogDetail(props) {
 	                        </div>
 
 	                        <div className="comment-form margin-btm-30">
-	                            <h4>Leave a Comment</h4>
-	                            <form role="form">
-	                                <div className="form-group">
-	                                    <input type="text" className="form-control" placeholder="Name" />
-	                                </div>
-	                                <div className="form-group">
-	                                    <input type="email" className="form-control" placeholder="Email" />
-	                                </div>
-	                                <div className="form-group">
-	                                    <textarea className="form-control comment-textarea" rows="5" placeholder="Enter your comment here"></textarea>
-	                                </div>
-	                                <button type="submit" className="btn btn-dark btn-sm comment-send-btn">Submit</button>
-	                            </form>
-	                        </div>
+                       			 <h4>Leave a Comment</h4>
+                       			 <CommentFormData />
+                       		</div>
+
 	                    </div>
 	                    
 	                </div>
