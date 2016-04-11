@@ -40,20 +40,21 @@ var CommentFormData = React.createClass({
   
 	onCommentSubmit: function(e){ 
 		console.log("on comment submitting" )
+		console.log(self.props.id);
 		e.preventDefault();
+		e.stopPropagation();
 		var commentData = {
 			body: this.state.body.trim()
 
     	};
     	var self = this;
-    	var commentData = commentData;
 	    $.ajax({
 	      url: '/api/one_post/' + self.props.id + '/comment',
 	      type: 'POST',
 	      data: commentData,
 	    }).done(function(data){
 	    	console.log("should be getting just to here");
-	  // this.props.loadCommentsFromServer();
+	  // 		this.props.loadCommentsFromServer();
 			// this.props.loadOnePostFromServer(); 
 			//these lines break, deleting yields "comment validation error"
 			self.setState({ body: ''});
