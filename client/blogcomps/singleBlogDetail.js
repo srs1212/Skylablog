@@ -56,7 +56,7 @@ function SingleBlogDetail(props) {
 
 	                        <div className="comment-form margin-btm-30">
                        			 <h4>Leave a Comment</h4>
-                       			 <CommentFormData />
+                       			 <CommentFormData id={props.blogId} loadOnePostFromServer={ this.loadOnePostFromServer } loadCommentsFromServer={ this.loadCommentsFromServer } />
                        		</div>
 
 	                    </div>

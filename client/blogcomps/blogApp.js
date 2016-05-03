@@ -67,7 +67,7 @@ var BlogApp = React.createClass({
 	
 	},
 	toggleActiveComp: function(name){
-		console.log("toggleActiveComp is active", name);
+		console.log("toggleActiveComp is still active", name);
 		this.setState ({ activeComponent: name})
 	},
 

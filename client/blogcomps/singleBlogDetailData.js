@@ -44,7 +44,7 @@ var SingleBlogDetailData =  React.createClass({
 	 	console.log("load comments from server");
 		var self = this;
 		$.ajax({
-			url: '/api/post/' + self.props.id + '/comment',
+			url: '/api/one_post/' + self.props.id + '/comment',
 			method: 'GET'
 		}).done(function(data){
 			self.setState({ comments: data })
@@ -57,7 +57,8 @@ var SingleBlogDetailData =  React.createClass({
 	 },
 
 	render: function (){
-		return this.state.onePost ?	<SingleBlogDetail  { ...this.state.onePost }  commentArray={this.state.comments} getId={ this.props.getId } id={this.props.id} loadOnePostFromServer={ this.loadOnePostFromServer } loadCommentsFromServer={ this.loadCommentsFromServer } /> : <Loader />
+		console.log("ID IN SINGLE BLOG DETAIL RENDER  ", this.props.id )
+		return this.state.onePost ?	<SingleBlogDetail  { ...this.state.onePost }  commentArray={this.state.comments} getId={ this.props.getId } blogId={this.props.id} loadOnePostFromServer={ this.loadOnePostFromServer } loadCommentsFromServer={ this.loadCommentsFromServer } /> : <Loader />
 				
 	}
 });

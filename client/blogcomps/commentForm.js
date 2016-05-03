@@ -22,7 +22,7 @@ function CommentForm(props){
   return (
 
 	 	<div className="comment-form margin-btm-30">
-                <form role="form" onSubmit={ props.onCommentSubmit }>
+                <form onSubmit={ props.onCommentSubmit }>
                     <div className="form-group">
                         <textarea className="form-control comment-textarea" onChange={ props.onBodyChange }
     				value={ props.body }rows="6" placeholder="Enter your comment here"></textarea>
